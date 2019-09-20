@@ -1,6 +1,8 @@
 import React from 'react';
-import GameBlock from './GameBlock';
 import Timer from 'react-compound-timer';
+import GameBlock from './GameBlock';
+import GameOver from './GameOver';
+
 
 class Game extends React.Component {
 	constructor(props) {
@@ -8,9 +10,17 @@ class Game extends React.Component {
       this.myRef = React.createRef();
     }
 	state = {
+		initialTime:2001,
 		playZone1: [[0,0,0],[0,0,0],[0,0,0]],
-		active:false
+		active:false,
+		reactionTimers: []
 	};
+	reactionTime = (time) => {
+		const startTime = this.state.initialTime;
+		let reactionTime = time.toFixed();
+		reactionTime = startTime - reactionTime;
+		return reactionTime;
+	}
 	startGame = () => {
 		let clearArr = [[0,0,0],[0,0,0],[0,0,0]];
 		const getRandomFirst = Math.floor(Math.random() * clearArr.length);
@@ -19,6 +29,9 @@ class Game extends React.Component {
 		this.setState({playZone1:clearArr,
 						active:true});
 		if (this.myRef.current!=null){
+			this.setState({
+		        reactionTimers:[...this.state.reactionTimers, this.reactionTime(this.myRef.current.timer.time)]
+		    });
 			this.myRef.current.reset();
 		}
 	}
@@ -33,7 +46,7 @@ class Game extends React.Component {
 			<div className='timer'>
 				<Timer
 				ref={this.myRef}
-			    initialTime={5001}
+			    initialTime={this.state.initialTime}
 			    direction="backward"
 			    timeToUpdate={10}
 			    checkpoints={[
@@ -47,7 +60,6 @@ class Game extends React.Component {
 			        <React.Fragment>
 			            <Timer.Seconds /> seconds
 			            <Timer.Milliseconds /> miliseconds 
-			            <button onClick={reset}>Reset</button>
 			        </React.Fragment>
 			    )}
 			</Timer>
@@ -85,7 +97,7 @@ class Game extends React.Component {
 			</div>
 			</div>)
 			}
-			else return (<div>FINISH</div>)
+			else return (<GameOver reactionTimers = {this.state.reactionTimers}/>)
 	}
 }
 export default Game;

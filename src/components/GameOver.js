@@ -27,8 +27,10 @@ class GameOver extends React.Component {
     	else return (
     		<div className='GameOver'>
 				<div className="endGame">
+                <ul>
 					<h1>Game Over!</h1>
 					<span onClick = {this.handleClick}>RETRY</span>
+                </ul>
 				</div>
 			</div>
     	)

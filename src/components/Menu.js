@@ -12,9 +12,6 @@ class Menu extends React.Component {
 		  				<li onClick = {this.handleClick}>
 		  					PLAY
 		  				</li>
-		  				<li>
-		  					GUIDE
-		  				</li>
 		  			</ul>
 		  		</div>
   			</div>

@@ -3,6 +3,7 @@ import './styles/App.scss';
 import Difficulty from './components/Difficulty';
 import Game from './components/Game';
 
+
 class App extends React.Component {
 	state = {
 		difficulty:0,
@@ -15,6 +16,7 @@ class App extends React.Component {
 
 
     render(){
+    	//  как только сложность меняется сразу же запускается окно Game, в которое передается сложность
     	if(this.state.difficulty !== 0){
 
 				return (
@@ -24,7 +26,7 @@ class App extends React.Component {
 					)
 			}
     	return(
-
+    		// если сложность не задана, тогда открываем меню выбора сложности
 	    	<div className='wrapper'>
 	  			<Difficulty setDifficulty ={this.setDifficulty}/>
 	  		</div>

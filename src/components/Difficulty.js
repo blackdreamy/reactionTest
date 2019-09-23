@@ -34,6 +34,7 @@ class Difficulty extends React.Component {
     render() {
         return (
             <div className='container'>
+            <div className='difficultyHeader'>Choose Difficulty</div>
 	  			<div 
 	  				className={this.state.dif1 ? 'difficulty1' : 'difficulty-none'} 
 	  				onMouseEnter={this.handleHover}  onMouseLeave={this.handleHover}

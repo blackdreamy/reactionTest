@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
 @import './Animations';
 $mainColor:#19323C;
 $menuColor:#F3F7F0;
@@ -41,6 +43,12 @@ $blockActive: #005344;
     padding:0px;
     margin:0px;
     background-color: $mainColor;
+    .readyTimer {
+        font-size:70px;
+        background-color:transparent;
+        font-family: 'Kanit', sans-serif;
+        color:$menuColor;
+    }
 }
 
 .menu {
@@ -60,7 +68,14 @@ $blockActive: #005344;
     }
 }
 
-
+.difficultyHeader {
+    position: absolute;
+    font-size:40px;
+    top:0;
+    margin-top:100px;
+    color:#f3f7f0;
+    font-family: 'Be Vietnam', sans-serif;
+}
 .difficulty-none {
     @include colorCircle(#f3f7f0);
 }
@@ -131,14 +146,26 @@ $blockActive: #005344;
 .endGame {
     @include flexCenter();
     background-color:$menuColor;
+    font-family: 'Kanit', sans-serif;
     width:350px;
     height:150px;
     border-radius:5%;
-    span {
-        margin-left:35%;
+    font-size:16px;
+    div {
+        text-align:center;
         cursor:pointer;
         color:#C80D3D;
         font-family: 'Kanit', sans-serif;
         font-size:20px;
+        margin-top:5px;
+    }
+
+    .winner {
+        color:green;
+        text-align:center;
+    }
+    .loser {
+        color:red;
+        text-align:center;
     }
 }

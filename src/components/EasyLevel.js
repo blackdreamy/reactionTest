@@ -12,7 +12,7 @@ class EasyLevel extends React.Component {
     state = {
         lastRandom: [],        //массив со всеми рандомными блоками
         forWin: 10,            //количество кликов для победы 
-        initialTime: 12200,    //время таймера
+        initialTime: 1000,     //время таймера
         playZone1: [           //игровое поле
             [0, 0, 0],
             [0, 0, 0],

@@ -12,7 +12,7 @@ class HighLevel extends React.Component {
     state = {
         lastRandom: [],
         forWin: 15,
-        initialTime: 700,
+        initialTime: 670,
         playZone3: [
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
